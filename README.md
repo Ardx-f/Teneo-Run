@@ -36,3 +36,6 @@ module.exports = [
 - This Script Was Created For Efficiency, All Risks Are Borne By The User.
 
 # Info
+[Extension Link](https://chromewebstore.google.com/detail/teneo-community-node/emcclcoaglgcpoognfiggmhnhgabppkm)
+[Referral Code:eB7mQ]
+[Telegram Channel](https://t.me/Indropper)
