@@ -60,3 +60,37 @@ function displayAccountData(index) {
   console.log(chalk.red(`_____________________________________________`));
 }
 /// TAMPILAN FUNGSI
+
+
+function logAllAccounts() {
+  console.clear();
+  displayHeader();
+  for (let i = 0; i < accounts.length; i++) {
+    displayAccountData(i);
+  }
+
+  console.log(chalk.magenta("\nStatus"));
+
+  for (let i = 0; i < accounts.length; i++) {
+    // Menggunakan warna magenta untuk label dan putih untuk datanya
+    console.log(chalk.magenta("Account: ") + chalk.white(accounts[i].email));
+    console.log(chalk.magenta("Potential Points: ") + chalk.white(potentialPoints[i]));
+    console.log(chalk.magenta("Countdown: ") + chalk.white(countdowns[i]));
+  }
+}
+async function connectWebSocket(index) {
+  if (sockets[index]) return;
+  const version = "v0.2";
+  const url = "wss://secure.ws.teneo.pro";
+  const wsUrl = `${url}/websocket?userId=${encodeURIComponent(userIds[index])}&version=${encodeURIComponent(version)}`;
+    const proxy = proxies[index % proxies.length];
+  const agent = useProxy ? new HttpsProxyAgent(`http://${proxy.username}:${proxy.password}@${proxy.host}:${proxy.port}`) : null;
+
+  sockets[index] = new WebSocket(wsUrl, { agent });
+
+  sockets[index].onopen = async () => {
+    lastUpdateds[index] = new Date().toISOString();
+    console.log(`Account ${index + 1} Connected`, lastUpdateds[index]);
+    startPinging(index);
+    startCountdownAndPoints(index);
+  };
