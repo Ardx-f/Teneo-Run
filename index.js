@@ -55,7 +55,7 @@ function displayAccountData(index) {
   console.log(chalk.magentaBright(`Message: `) + chalk.white(messages[index]));
   const proxy = proxies[index % proxies.length];
   if (useProxy) {
-    console.log(chalk.hex('#FFA500')(`Proxy: ${proxy.host}:${proxy.port} (User: ${proxy.username})`));
+    console.log(chalk.magentaBright(`Proxy: ${proxy.host}:${proxy.port} (User: ${proxy.username})`));
   }
   console.log(chalk.red(`_____________________________________________`));
 }
@@ -68,7 +68,6 @@ function logAllAccounts() {
   for (let i = 0; i < accounts.length; i++) {
     displayAccountData(i);
   }
-
   console.log(chalk.magenta("\nStatus"));
 
   for (let i = 0; i < accounts.length; i++) {
@@ -76,6 +75,7 @@ function logAllAccounts() {
     console.log(chalk.magenta("Account: ") + chalk.white(accounts[i].email));
     console.log(chalk.magenta("Potential Points: ") + chalk.white(potentialPoints[i]));
     console.log(chalk.magenta("Countdown: ") + chalk.white(countdowns[i]));
+    console.log(chalk.red(`_____________________________________________`));
   }
 }
 async function connectWebSocket(index) {
