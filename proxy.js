@@ -2,27 +2,29 @@ module.exports = [
 
   {
 
-    host: "proxy1.example.com",
+    host: "p.webshare.io",
 
-    port: 8080,
+    port: 80,
 
-    username: "proxyuser1",  
+    username: "otuiqqun-1",  
 
-    password: "proxypass1" 
+    password: "cfi8z4nmugww" 
 
   },
 
   {
 
-    host: "proxy2.example.com",
+    host: "p.webshare.io",
 
-    port: 8080,
+    port: 80,
 
-    username: "proxyuser2",
+    username: "otuiqqun-2",
 
-    password: "proxypass2"
+    password: "cfi8z4nmugww"
 
   },
+
+  //
   // Tambahkan lebih banyak proxy sesuai kebutuhan  
  // Add more proxies as needed
 // При необходимости добавьте больше прокси-серверов.
